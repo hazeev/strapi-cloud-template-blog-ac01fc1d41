@@ -44,6 +44,28 @@
     "blocks": {
       "type": "dynamiczone",
       "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-item"
+    },
+    "howToSteps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.howto-step"
+    },
+    "keyTakeaways": {
+      "type": "text"
+    },
+    "articleType": {
+      "type": "enumeration",
+      "enum": ["guide", "howto", "listicle", "comparison", "news", "case-study"],
+      "default": "guide"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

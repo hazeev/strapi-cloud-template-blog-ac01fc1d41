@@ -1,5 +1,32 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_faq_items';
+  info: {
+    description: 'Frequently Asked Question with question and answer for SEO and GEO optimization';
+    displayName: 'FAQ Item';
+    icon: 'question-circle';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SharedHowtoStep extends Struct.ComponentSchema {
+  collectionName: 'components_shared_howto_steps';
+  info: {
+    description: 'Step-by-step instruction for tutorial articles with HowTo schema markup';
+    displayName: 'HowTo Step';
+    icon: 'list-ol';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    text: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +92,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.faq-item': SharedFaqItem;
+      'shared.howto-step': SharedHowtoStep;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

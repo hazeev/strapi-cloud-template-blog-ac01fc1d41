@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_howto_steps",
+  "info": {
+    "displayName": "HowTo Step",
+    "description": "Step-by-step instruction for tutorial articles with HowTo schema markup",
+    "icon": "list-ol"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

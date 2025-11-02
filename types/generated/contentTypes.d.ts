@@ -471,6 +471,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    articleType: Schema.Attribute.Enumeration<
+      ['guide', 'howto', 'listicle', 'comparison', 'news', 'case-study']
+    > &
+      Schema.Attribute.DefaultTo<'guide'>;
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
       ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
@@ -484,6 +488,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 80;
       }>;
+    faqs: Schema.Attribute.Component<'shared.faq-item', true>;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    howToSteps: Schema.Attribute.Component<'shared.howto-step', true>;
+    keyTakeaways: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
