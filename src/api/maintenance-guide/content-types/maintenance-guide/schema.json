@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maintenance_guides",
+  "info": {
+    "singularName": "maintenance-guide",
+    "pluralName": "maintenance-guides",
+    "displayName": "Maintenance Guide",
+    "description": "Step-by-step maintenance and repair guides for SEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "keywords": {
+      "type": "json"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "howToSteps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.howto-step"
+    },
+    "toolsNeeded": {
+      "type": "json"
+    },
+    "estimatedTime": {
+      "type": "string"
+    },
+    "estimatedCost": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cost-range"
+    },
+    "difficulty": {
+      "type": "enumeration",
+      "enum": ["easy", "moderate", "hard"],
+      "default": "moderate"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::resource-category.resource-category",
+      "inversedBy": "maintenanceGuides"
+    },
+    "applicableVehicles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::vehicle-resource.vehicle-resource"
+    },
+    "relatedGuides": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::maintenance-guide.maintenance-guide"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

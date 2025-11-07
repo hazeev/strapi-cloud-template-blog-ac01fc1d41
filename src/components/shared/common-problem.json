@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_shared_common_problems",
+  "info": {
+    "displayName": "Common Problem",
+    "description": "Vehicle common problem with severity and cost estimates",
+    "icon": "exclamation-triangle"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "severity": {
+      "type": "enumeration",
+      "enum": ["minor", "moderate", "severe", "critical"],
+      "default": "moderate"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "symptoms": {
+      "type": "richtext"
+    },
+    "causes": {
+      "type": "richtext"
+    },
+    "solutions": {
+      "type": "richtext"
+    },
+    "prevention": {
+      "type": "richtext"
+    },
+    "estimatedCost": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cost-range"
+    },
+    "laborHours": {
+      "type": "decimal"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_shared_maintenance_schedule_items",
+  "info": {
+    "displayName": "Maintenance Schedule Item",
+    "description": "Scheduled maintenance item with interval and cost",
+    "icon": "wrench"
+  },
+  "options": {},
+  "attributes": {
+    "interval": {
+      "type": "string",
+      "required": true
+    },
+    "intervalMiles": {
+      "type": "integer"
+    },
+    "intervalMonths": {
+      "type": "integer"
+    },
+    "service": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "estimatedCost": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cost-range",
+      "required": true
+    },
+    "priority": {
+      "type": "enumeration",
+      "enum": ["critical", "recommended", "optional"],
+      "default": "recommended"
+    }
+  }
+}

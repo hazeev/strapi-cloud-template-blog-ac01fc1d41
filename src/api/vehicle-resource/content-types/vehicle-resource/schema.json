@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicle_resources",
+  "info": {
+    "singularName": "vehicle-resource",
+    "pluralName": "vehicle-resources",
+    "displayName": "Vehicle Resource",
+    "description": "Vehicle-specific maintenance guides and common problems for SEO"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "make": {
+      "type": "string",
+      "required": true
+    },
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "integer",
+      "required": true,
+      "min": 1900,
+      "max": 2100
+    },
+    "year_end": {
+      "type": "integer",
+      "min": 1900,
+      "max": 2100
+    },
+    "trim": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 500
+    },
+    "keywords": {
+      "type": "json"
+    },
+    "overview": {
+      "type": "richtext"
+    },
+    "commonProblems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.common-problem"
+    },
+    "maintenanceSchedule": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.maintenance-schedule-item"
+    },
+    "faqs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-item"
+    },
+    "averageMileage": {
+      "type": "integer"
+    },
+    "averageCostPerYear": {
+      "type": "decimal"
+    },
+    "reliabilityScore": {
+      "type": "integer",
+      "min": 1,
+      "max": 10
+    },
+    "relatedArticles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::resource-category.resource-category",
+      "inversedBy": "vehicleResources"
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

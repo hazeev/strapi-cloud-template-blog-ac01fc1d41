@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_cost_ranges",
+  "info": {
+    "displayName": "Cost Range",
+    "description": "Min/max cost range for services and repairs",
+    "icon": "dollar-sign"
+  },
+  "options": {},
+  "attributes": {
+    "min": {
+      "type": "decimal",
+      "required": true
+    },
+    "max": {
+      "type": "decimal",
+      "required": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    }
+  }
+}
